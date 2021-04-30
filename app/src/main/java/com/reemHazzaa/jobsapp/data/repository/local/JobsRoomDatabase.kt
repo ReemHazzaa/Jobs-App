@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.reemHazzaa.jobsapp.data.model.JobItem
 import com.reemHazzaa.jobsapp.utils.JOBS_DATABASE_NAME
 
-@Database(entities = [], version = 1, exportSchema = false)
+@Database(entities = [JobItem::class], version = 1, exportSchema = false)
 abstract class JobsRoomDatabase : RoomDatabase() {
 
     companion object {

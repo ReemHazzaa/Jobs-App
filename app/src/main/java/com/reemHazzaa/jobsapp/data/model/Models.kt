@@ -27,4 +27,5 @@ data class JobItem(
     @NonNull @SerializedName("description") var description: String? = "",
     @NonNull @SerializedName("how_to_apply") var howToApply: String? = "",
     @NonNull @SerializedName("company_logo") var companyLogoUrl: String? = "",
+    var isFav: Boolean
 ) : Parcelable
