@@ -2,4 +2,6 @@
     <string name="app_name">JobsApp</string>
     <string name="welcome_to_mega_trust_jobs">Welcome to Mega Trust Jobs</string>
     <string name="start">Start</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
