@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.reemHazzaa.jobsapp.utils.TABLE_JOBS
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 data class ResponseJobs(
     val data: List<JobItem?>?
@@ -16,7 +16,7 @@ data class ResponseJobs(
 @Parcelize
 data class JobItem(
     @PrimaryKey
-    @NonNull  @SerializedName("id") var jobId: String? = "",
+    @NonNull @SerializedName("id") var jobId: String = "",
     @NonNull @SerializedName("type") var jobType: String? = "",
     @NonNull @SerializedName("url") var jobUrl: String? = "",
     @NonNull @SerializedName("created_at") var createdAt: String? = "",
