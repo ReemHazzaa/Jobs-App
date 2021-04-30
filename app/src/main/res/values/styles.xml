@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="JobsSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/aclonica</item>
+        <item name="android:textColorHint">#A4A4A4</item>
+    </style>
+</resources>
