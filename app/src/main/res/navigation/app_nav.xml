@@ -9,5 +9,46 @@
         android:id="@+id/welcomeFragment"
         android:name="com.reemHazzaa.jobsapp.view.welcome.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_jobsListFragment"
+            app:destination="@id/jobsListFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobsListFragment"
+        android:name="com.reemHazzaa.jobsapp.view.jobsList.JobsListFragment"
+        android:label="fragment_jobs_list"
+        tools:layout="@layout/fragment_jobs_list">
+        <action
+            android:id="@+id/action_jobsListFragment_to_jobDetailsFragment"
+            app:destination="@id/jobDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_jobsListFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/jobDetailsFragment"
+        android:name="com.reemHazzaa.jobsapp.view.jobDetails.JobDetailsFragment"
+        android:label="fragment_job_details"
+        tools:layout="@layout/fragment_job_details">
+        <action
+            android:id="@+id/action_jobDetailsFragment_to_jobsListFragment"
+            app:destination="@id/jobsListFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/jobsListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>
