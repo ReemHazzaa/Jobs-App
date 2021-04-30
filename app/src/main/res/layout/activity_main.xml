@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1"/>
+        app:layout_constraintGuide_percent="0.05"/>
 
     <TextView
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
         android:fontFamily="@font/aclonica"
         android:text="@string/welcome_to_mega_trust_jobs"
         android:textColor="@color/teal_700"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:layout_marginHorizontal="30dp"
         app:layout_constraintBottom_toTopOf="@id/guideline1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="30dp"
-        android:padding="10dp"
+        android:padding="30dp"
         android:src="@drawable/ic_job_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
