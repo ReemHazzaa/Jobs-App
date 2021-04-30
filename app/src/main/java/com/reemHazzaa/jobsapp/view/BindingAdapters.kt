@@ -1,7 +1,9 @@
 package com.reemHazzaa.jobsapp.view
 
+import android.view.View
 import android.widget.Button
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.reemHazzaa.jobsapp.R
 
@@ -15,6 +17,19 @@ class BindingAdapters {
                     bt.findNavController()
                         .navigate(R.id.action_welcomeFragment_to_jobsListFragment)
                 }
+            }
+        }
+
+        /**
+         * This is a function to observe if the database is empty and
+         * show/hide views accordingly.
+         */
+        @JvmStatic
+        @BindingAdapter("android:emptyDatabase")
+        fun emptyDatabase(view: View, emptyDatabase: MutableLiveData<Boolean>) {
+            when (emptyDatabase.value) {
+                true -> view.visibility = View.VISIBLE
+                false -> view.visibility = View.INVISIBLE
             }
         }
     }
