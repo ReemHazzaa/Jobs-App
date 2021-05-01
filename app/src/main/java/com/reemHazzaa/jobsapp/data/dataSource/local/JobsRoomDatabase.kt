@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.data.repository.local
+package com.reemHazzaa.jobsapp.data.dataSource.local
 
 import android.content.Context
 import androidx.room.Database

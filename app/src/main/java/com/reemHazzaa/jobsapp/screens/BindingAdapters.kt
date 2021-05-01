@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.view
+package com.reemHazzaa.jobsapp.screens
 
 import android.view.View
 import android.widget.Button
@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.model.JobItem
-import com.reemHazzaa.jobsapp.view.jobsList.JobsListFragmentDirections
+import com.reemHazzaa.jobsapp.screens.jobsList.JobsListFragmentDirections
 
 class BindingAdapters {
     companion object {

@@ -1,6 +1,6 @@
 package com.reemHazzaa.jobsapp.di
 
-import com.reemHazzaa.jobsapp.data.repository.remote.Service
+import com.reemHazzaa.jobsapp.data.dataSource.remote.JobsApi
 import com.reemHazzaa.jobsapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -54,8 +54,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): Service {
-        return retrofit.create(Service::class.java)
+    fun provideApiService(retrofit: Retrofit): JobsApi {
+        return retrofit.create(JobsApi::class.java)
     }
 
 }

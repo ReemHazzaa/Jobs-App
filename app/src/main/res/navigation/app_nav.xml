@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.reemHazzaa.jobsapp.view.welcome.WelcomeFragment"
+        android:name="com.reemHazzaa.jobsapp.screens.welcome.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/jobsListFragment"
-        android:name="com.reemHazzaa.jobsapp.view.jobsList.JobsListFragment"
+        android:name="com.reemHazzaa.jobsapp.screens.jobsList.JobsListFragment"
         android:label="fragment_jobs_list"
         tools:layout="@layout/fragment_jobs_list">
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/jobDetailsFragment"
-        android:name="com.reemHazzaa.jobsapp.view.jobDetails.JobDetailsFragment"
+        android:name="com.reemHazzaa.jobsapp.screens.jobDetails.JobDetailsFragment"
         android:label="fragment_job_details"
         tools:layout="@layout/fragment_job_details">
         <action

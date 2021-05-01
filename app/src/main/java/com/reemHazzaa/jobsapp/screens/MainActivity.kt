@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.view
+package com.reemHazzaa.jobsapp.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

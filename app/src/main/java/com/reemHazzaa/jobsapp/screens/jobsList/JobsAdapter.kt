@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.view.jobsList
+package com.reemHazzaa.jobsapp.screens.jobsList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

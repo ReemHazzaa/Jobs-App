@@ -1,27 +1,22 @@
-package com.reemHazzaa.jobsapp.view.welcome
+package com.reemHazzaa.jobsapp.screens.jobDetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.reemHazzaa.jobsapp.R
-import com.reemHazzaa.jobsapp.databinding.FragmentWelcomeBinding
+import com.reemHazzaa.jobsapp.databinding.FragmentJobDetailsBinding
 
-class WelcomeFragment : Fragment() {
-    private var _binding: FragmentWelcomeBinding? = null
+class JobDetailsFragment : Fragment() {
+
+    private var _binding: FragmentJobDetailsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentWelcomeBinding.inflate(layoutInflater, container, false)
-
-        binding.startBT.setOnClickListener {
-
-        }
-
+        _binding = FragmentJobDetailsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

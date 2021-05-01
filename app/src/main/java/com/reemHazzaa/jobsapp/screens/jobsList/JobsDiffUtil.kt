@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.view.jobsList
+package com.reemHazzaa.jobsapp.screens.jobsList
 
 import androidx.recyclerview.widget.DiffUtil
 import com.reemHazzaa.jobsapp.data.model.JobItem
