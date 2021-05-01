@@ -5,7 +5,7 @@ import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.reemHazzaa.jobsapp.utils.TABLE_JOBS
+import com.reemHazzaa.jobsapp.utils.Constants.Companion.TABLE_JOBS
 import kotlinx.parcelize.Parcelize
 
 data class ResponseJobs(

@@ -1,6 +1,6 @@
 package com.reemHazzaa.jobsapp.data.repository.remote
 
-import com.reemHazzaa.jobsapp.utils.BASE_URL
+import com.reemHazzaa.jobsapp.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

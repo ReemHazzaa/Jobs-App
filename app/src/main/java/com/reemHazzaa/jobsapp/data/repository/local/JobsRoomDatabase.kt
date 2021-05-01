@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.reemHazzaa.jobsapp.data.model.JobItem
-import com.reemHazzaa.jobsapp.utils.JOBS_DATABASE_NAME
+import com.reemHazzaa.jobsapp.utils.Constants.Companion.JOBS_DATABASE_NAME
 
 @Database(entities = [JobItem::class], version = 1, exportSchema = false)
 abstract class JobsRoomDatabase : RoomDatabase() {
