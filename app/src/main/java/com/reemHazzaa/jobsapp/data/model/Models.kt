@@ -9,7 +9,7 @@ import com.reemHazzaa.jobsapp.utils.Constants.Companion.TABLE_JOBS
 import kotlinx.parcelize.Parcelize
 
 data class ResponseJobs(
-    val data: List<JobItem?>?
+    val jobsList: List<JobItem?>?
 )
 
 @Entity(tableName = TABLE_JOBS)
