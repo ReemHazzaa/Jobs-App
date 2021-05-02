@@ -19,6 +19,7 @@ class JobItemBindingAdapters {
                     crossfade(true)
                     crossfade(600)
                     placeholder(R.drawable.ic_company_place_holder)
+                    error(R.drawable.ic_error)
                 }
             } else {
                 imageView.load(R.drawable.ic_company_place_holder)

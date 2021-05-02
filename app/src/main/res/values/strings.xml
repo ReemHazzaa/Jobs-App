@@ -6,7 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_jobs">Search Jobs</string>
     <string name="ok">Ok</string>
-    <string name="no_internet_connection">No Internet Connection.</string>
+    <string name="no_internet_connection">No Internet Connection</string>
     <string name="no_jobs">Jobs not found.</string>
     <string name="no_api_response">No API response!</string>
     <string name="job_url">Job URL</string>

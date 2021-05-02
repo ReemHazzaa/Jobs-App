@@ -1,7 +1,6 @@
 package com.reemHazzaa.jobsapp.screens
 
 import android.app.Application
-import android.content.res.Resources
 import androidx.lifecycle.*
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.dataSources.remote.NetworkResult
@@ -52,10 +51,16 @@ class MainViewModel @Inject constructor(
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                jobsResponse.value = NetworkResult.Error(getString(R.string.no_jobs))
+                jobsResponse.value = NetworkResult.Error(
+                    getApplication<Application>().resources.getString(R.string.no_jobs),
+                    null
+                )
             }
         } else {
-            jobsResponse.value = NetworkResult.Error(getString(R.string.no_internet_connection))
+            jobsResponse.value = NetworkResult.Error(
+                getApplication<Application>().resources.getString(R.string.no_internet_connection),
+                null
+            )
         }
     }
 
@@ -67,25 +72,32 @@ class MainViewModel @Inject constructor(
     private fun handleJobsResponse(response: Response<List<JobItem?>?>?): NetworkResult<List<JobItem?>?> {
         when {
             response == null -> {
-                return NetworkResult.Error(getString(R.string.no_api_response))
+                return NetworkResult.Error(
+                    getApplication<Application>().resources.getString(R.string.no_api_response),
+                    null
+                )
             }
             response.body() == null -> {
-                return NetworkResult.Error(getString(R.string.no_jobs))
+                return NetworkResult.Error(
+                    getApplication<Application>().resources.getString(R.string.no_jobs),
+                    null
+                )
             }
             response.body()!!.isNullOrEmpty() -> {
-                return NetworkResult.Error(getString(R.string.no_jobs))
+                return NetworkResult.Error(
+                    getApplication<Application>().resources.getString(R.string.no_jobs),
+                    null
+                )
             }
             response.isSuccessful -> {
                 val jobs = response.body()
                 return NetworkResult.Success(jobs!!)
             }
             else -> {
-                return NetworkResult.Error(response.message())
+                return NetworkResult.Error(response.message(), null)
 
             }
         }
     }
-
-    private fun getString(stringID: Int) = Resources.getSystem().getString(stringID)
 
 }

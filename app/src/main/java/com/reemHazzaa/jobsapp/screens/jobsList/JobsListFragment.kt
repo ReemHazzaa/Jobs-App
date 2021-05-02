@@ -1,6 +1,7 @@
 package com.reemHazzaa.jobsapp.screens.jobsList
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,6 +58,7 @@ class JobsListFragment : Fragment() {
             mainViewModel.readJobs.observeOnce(viewLifecycleOwner, {
                 if (it.isNotEmpty()) {
                     activity?.runOnUiThread {
+                        @Suppress("UNCHECKED_CAST")
                         jobsAdapter.setList(it[0].jobs as List<JobItem>)
                         hideLoading()
                     }
@@ -103,6 +105,7 @@ class JobsListFragment : Fragment() {
             mainViewModel.readJobs.observe(viewLifecycleOwner, {
                 if (it.isNotEmpty()) {
                     activity?.runOnUiThread {
+                        @Suppress("UNCHECKED_CAST")
                         jobsAdapter.setList(it[0].jobs as List<JobItem>)
                         hideLoading()
                     }
@@ -112,25 +115,31 @@ class JobsListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        binding.jobsRV.apply {
-            adapter = jobsAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+        activity?.runOnUiThread {
+            binding.jobsRV.apply {
+                adapter = jobsAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
         }
         showLoading()
     }
 
     private fun showLoading() {
-        binding.apply {
-            jobsRV.makeGone()
-            loading.makeVisible()
+        activity?.runOnUiThread {
+            binding.apply {
+                jobsRV.makeGone()
+                loading.makeVisible()
+            }
         }
     }
 
     private fun hideLoading() {
-        binding.apply {
-            jobsRV.makeVisible()
-            loading.makeGone()
-            refreshLayout.isRefreshing = false
+        activity?.runOnUiThread {
+            binding.apply {
+                jobsRV.makeVisible()
+                loading.makeGone()
+                refreshLayout.isRefreshing = false
+            }
         }
     }
 
