@@ -1,6 +1,6 @@
 package com.reemHazzaa.jobsapp.data
 
-import com.reemHazzaa.jobsapp.data.dataSource.remote.RemoteDataSource
+import com.reemHazzaa.jobsapp.data.dataSources.remote.RemoteDataSource
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 

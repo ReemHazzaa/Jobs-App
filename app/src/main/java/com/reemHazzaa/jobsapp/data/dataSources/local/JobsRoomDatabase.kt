@@ -1,10 +1,10 @@
-package com.reemHazzaa.jobsapp.data.dataSource.local
+package com.reemHazzaa.jobsapp.data.dataSources.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.reemHazzaa.jobsapp.data.model.JobItem
+import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.utils.Constants.Companion.JOBS_DATABASE_NAME
 
 @Database(entities = [JobItem::class], version = 1, exportSchema = false)

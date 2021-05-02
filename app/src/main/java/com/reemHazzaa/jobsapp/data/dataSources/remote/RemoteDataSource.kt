@@ -1,6 +1,6 @@
-package com.reemHazzaa.jobsapp.data.dataSource.remote
+package com.reemHazzaa.jobsapp.data.dataSources.remote
 
-import com.reemHazzaa.jobsapp.data.model.ResponseJobs
+import com.reemHazzaa.jobsapp.data.models.ResponseJobs
 import retrofit2.Response
 import javax.inject.Inject
 

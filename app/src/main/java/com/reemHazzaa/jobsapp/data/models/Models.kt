@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.data.model
+package com.reemHazzaa.jobsapp.data.models
 
 import android.os.Parcelable
 import androidx.annotation.NonNull

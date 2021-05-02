@@ -1,14 +1,14 @@
-package com.reemHazzaa.jobsapp
+package com.reemHazzaa.jobsapp.utils
 
 import android.app.Application
 import android.content.res.Resources
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.Repository
-import com.reemHazzaa.jobsapp.data.dataSource.remote.NetworkResult
-import com.reemHazzaa.jobsapp.data.model.ResponseJobs
-import com.reemHazzaa.jobsapp.utils.NetworkMonitor
+import com.reemHazzaa.jobsapp.data.dataSources.remote.NetworkResult
+import com.reemHazzaa.jobsapp.data.models.ResponseJobs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

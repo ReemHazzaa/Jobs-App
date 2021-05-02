@@ -1,7 +1,7 @@
-package com.reemHazzaa.jobsapp.screens.jobsList
+package com.reemHazzaa.jobsapp.screens.jobsList.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.reemHazzaa.jobsapp.data.model.JobItem
+import com.reemHazzaa.jobsapp.data.models.JobItem
 
 class JobsDiffUtil(
     private val oldList: List<JobItem>,

@@ -1,6 +1,6 @@
 package com.reemHazzaa.jobsapp.di
 
-import com.reemHazzaa.jobsapp.data.dataSource.remote.JobsApi
+import com.reemHazzaa.jobsapp.data.dataSources.remote.JobsApi
 import com.reemHazzaa.jobsapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides

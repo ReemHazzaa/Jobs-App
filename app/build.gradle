@@ -88,6 +88,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_version"
+    implementation group: 'androidx.lifecycle', name:'lifecycle-viewmodel-ktx', version: '2.4.0-alpha01'
     kapt "androidx.hilt:hilt-compiler:$hilt_version"
+
+    // Image Loading library Coil
+    implementation "io.coil-kt:coil:0.13.0"
 }

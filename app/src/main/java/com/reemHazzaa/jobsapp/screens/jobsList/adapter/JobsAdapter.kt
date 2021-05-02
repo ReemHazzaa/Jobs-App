@@ -1,10 +1,10 @@
-package com.reemHazzaa.jobsapp.screens.jobsList
+package com.reemHazzaa.jobsapp.screens.jobsList.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.reemHazzaa.jobsapp.data.model.JobItem
+import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.databinding.ItemJobBinding
 
 
@@ -35,6 +35,11 @@ class JobsAdapter : RecyclerView.Adapter<JobsAdapter.JobViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
+    override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
+        val currentItem = list[position]
+        holder.bind(currentItem)
+    }
+
     fun setList(filteredList: List<JobItem>) {
         val tasksDiffUtil = JobsDiffUtil(list, filteredList)
         val diffUtilResult = DiffUtil.calculateDiff(tasksDiffUtil)
@@ -43,9 +48,4 @@ class JobsAdapter : RecyclerView.Adapter<JobsAdapter.JobViewHolder>() {
     }
 
     fun getList(): List<JobItem> = list
-
-    override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
-        val currentItem = list[position]
-        holder.bind(currentItem)
-    }
 }
