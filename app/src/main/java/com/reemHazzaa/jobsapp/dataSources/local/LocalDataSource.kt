@@ -1,6 +1,5 @@
 package com.reemHazzaa.jobsapp.dataSources.local
 
-import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 import com.reemHazzaa.jobsapp.screens.jobsList.data.room.JobsDao
 import com.reemHazzaa.jobsapp.screens.jobsList.data.room.JobsEntity
 import kotlinx.coroutines.flow.Flow

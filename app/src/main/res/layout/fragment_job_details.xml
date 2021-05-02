@@ -93,6 +93,7 @@
                         android:text=""
                         android:textOff=""
                         android:textOn=""
+                        android:checked="@{args.currentJob.fav}"
                         app:layout_constraintBottom_toBottomOf="@+id/jobTitleTV"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/jobTitleTV"
