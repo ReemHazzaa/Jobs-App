@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.dataSources.remote.NetworkResult
-import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.databinding.FragmentJobsListBinding
 import com.reemHazzaa.jobsapp.screens.jobsList.adapter.JobsAdapter
+import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 import com.reemHazzaa.jobsapp.utils.MainViewModel
 import com.reemHazzaa.jobsapp.utils.displayErrorSnackbar
 import com.reemHazzaa.jobsapp.utils.makeGone
@@ -26,12 +26,16 @@ class JobsListFragment : Fragment() {
     private val jobsAdapter by lazy { JobsAdapter() }
     private lateinit var mainViewModel: MainViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentJobsListBinding.inflate(layoutInflater, container, false)
-        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         setUpRecyclerView()
         requestJobsAPI()

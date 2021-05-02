@@ -1,6 +1,6 @@
 package com.reemHazzaa.jobsapp.data.dataSources.remote
 
-import com.reemHazzaa.jobsapp.data.models.JobItem
+import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

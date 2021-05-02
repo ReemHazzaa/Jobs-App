@@ -6,7 +6,7 @@
     <data>
         <variable
             name="job"
-            type="com.reemHazzaa.jobsapp.data.models.JobItem" />
+            type="com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

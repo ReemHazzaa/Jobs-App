@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.databinding.ItemJobBinding
+import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 
 
 class JobsAdapter : RecyclerView.Adapter<JobsAdapter.JobViewHolder>() {

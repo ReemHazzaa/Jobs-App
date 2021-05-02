@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.Repository
 import com.reemHazzaa.jobsapp.data.dataSources.remote.NetworkResult
-import com.reemHazzaa.jobsapp.data.models.JobItem
+import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

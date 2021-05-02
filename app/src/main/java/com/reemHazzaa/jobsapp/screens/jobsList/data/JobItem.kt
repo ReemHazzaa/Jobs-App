@@ -1,14 +1,14 @@
-package com.reemHazzaa.jobsapp.data.models
+package com.reemHazzaa.jobsapp.screens.jobsList.data
 
 import android.os.Parcelable
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.reemHazzaa.jobsapp.utils.Constants.Companion.TABLE_JOBS
+import com.reemHazzaa.jobsapp.utils.Constants
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = TABLE_JOBS)
+@Entity(tableName = Constants.TABLE_JOBS)
 @Parcelize
 data class JobItem(
     @PrimaryKey

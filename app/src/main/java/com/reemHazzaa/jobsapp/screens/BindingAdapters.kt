@@ -2,17 +2,15 @@ package com.reemHazzaa.jobsapp.screens
 
 import android.view.View
 import android.widget.Button
-import android.widget.CompoundButton
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.reemHazzaa.jobsapp.R
-import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.screens.jobsList.JobsListFragmentDirections
+import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 
 class BindingAdapters {
     companion object {
@@ -56,9 +54,10 @@ class BindingAdapters {
 
         @JvmStatic
         @BindingAdapter("sendDataToDetailsFragment")
-        fun sendDataToDetailsFragment(view: ConstraintLayout, item:JobItem) {
+        fun sendDataToDetailsFragment(view: ConstraintLayout, item: JobItem) {
             view.setOnClickListener {
-                val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(item)
+                val action =
+                    JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(item)
                 view.findNavController().navigate(action)
             }
         }

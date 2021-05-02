@@ -52,6 +52,6 @@
             app:popUpToInclusive="true"/>
         <argument
             android:name="currentJob"
-            app:argType="com.reemHazzaa.jobsapp.data.models.JobItem" />
+            app:argType="com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem" />
     </fragment>
 </navigation>
