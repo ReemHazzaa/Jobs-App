@@ -1,11 +1,8 @@
 package com.reemHazzaa.jobsapp.screens.jobsList.binding
 
-import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import coil.load
 import com.reemHazzaa.jobsapp.R

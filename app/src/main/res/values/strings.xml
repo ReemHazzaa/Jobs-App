@@ -11,4 +11,5 @@
     <string name="no_api_response">No API response!</string>
     <string name="job_url">Job URL</string>
     <string name="company_url">Company URL</string>
+    <string name="jobs">Jobs</string>
 </resources>

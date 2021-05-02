@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="args"
+            type="com.reemHazzaa.jobsapp.screens.jobDetails.JobDetailsFragmentArgs" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +17,7 @@
 
         <ImageView
             android:id="@+id/companyLogoIV"
+            loadImageFromUrl="@{args.currentJob.companyLogoUrl}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
@@ -27,12 +31,13 @@
 
         <TextView
             android:id="@+id/companyNameTV"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/aclonica"
-            android:text=""
+            android:text="@{args.currentJob.companyName}"
             android:textAlignment="center"
             android:textColor="@color/teal_700"
             android:textSize="25sp"
@@ -67,12 +72,11 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/abhaya_libre"
-                        android:text=""
+                        android:fontFamily="@font/aclonica"
+                        android:text="@{args.currentJob.title}"
                         android:textAlignment="viewStart"
                         android:textColor="@android:color/black"
-                        android:textSize="25sp"
-                        android:textStyle="bold"
+                        android:textSize="20sp"
                         app:layout_constraintEnd_toStartOf="@+id/favTB"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -81,38 +85,19 @@
 
                     <ToggleButton
                         android:id="@+id/favTB"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginEnd="20dp"
                         android:background="@drawable/button_favorite"
-                        tools:checked="false"
                         android:padding="10dp"
                         android:text=""
                         android:textOff=""
                         android:textOn=""
-                        android:clickable="false"
                         app:layout_constraintBottom_toBottomOf="@+id/jobTitleTV"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/jobTitleTV"
-                        app:layout_constraintVertical_bias="0.4" />
-
-                    <TextView
-                        android:id="@+id/jobDescriptionTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/abhaya_libre"
-                        android:text=""
-                        android:textAlignment="viewStart"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/jobTitleTV"
-                        tools:text="Software Engineer" />
+                        app:layout_constraintVertical_bias="0.4"
+                        tools:checked="false" />
 
                     <TextView
                         android:id="@+id/jobTypeTV"
@@ -124,7 +109,7 @@
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/abhaya_libre"
                         android:gravity="center"
-                        android:text=""
+                        android:text="@{args.currentJob.jobType}"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="15sp"
@@ -160,13 +145,14 @@
 
                         <TextView
                             android:id="@+id/jobUrlTV"
+                            openUrlInBrowser="@{args.currentJob.jobUrl}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:fontFamily="@font/abhaya_libre"
-                            android:gravity="center"
+                            android:gravity="start"
                             android:paddingVertical="10dp"
-                            android:text="@string/job_url"
+                            android:text="@{args.currentJob.jobUrl}"
                             android:textColor="@color/teal_700"
                             android:textSize="15sp" />
 
@@ -197,17 +183,35 @@
 
                         <TextView
                             android:id="@+id/companyUrlTV"
+                            openUrlInBrowser="@{args.currentJob.companyUrl}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:fontFamily="@font/abhaya_libre"
-                            android:gravity="center"
+                            android:gravity="start"
                             android:paddingVertical="10dp"
-                            android:text="@string/company_url"
+                            android:text="@{args.currentJob.companyUrl}"
                             android:textColor="@color/teal_700"
                             android:textSize="15sp" />
 
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/jobDescriptionTV"
+                        setTextFromHtml="@{args.currentJob.description}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/abhaya_libre"
+                        android:textAlignment="viewStart"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/jobTitleTV"
+                        tools:text="Software Engineer" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
