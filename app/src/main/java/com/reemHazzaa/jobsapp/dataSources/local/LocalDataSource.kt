@@ -9,6 +9,10 @@ import javax.inject.Inject
 class LocalDataSource @Inject constructor(
     private val jobsDao: JobsDao
 ) {
+    suspend fun updateJobs(jobs: JobsEntity) {
+        jobsDao.updateJobs(jobs)
+    }
+
     suspend fun insertJobs(newJobs: JobsEntity) {
         jobsDao.insertJobs(newJobs)
     }

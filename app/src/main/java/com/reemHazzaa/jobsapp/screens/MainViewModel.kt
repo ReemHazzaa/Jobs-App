@@ -23,6 +23,11 @@ class MainViewModel @Inject constructor(
     /** ROOM */
     val readJobs: LiveData<List<JobsEntity>> = repository.local.readJobs().asLiveData()
 
+    private fun updateJobs(jobsEntity: JobsEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.updateJobs(jobsEntity)
+        }
+
     private fun insertJobs(jobsEntity: JobsEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertJobs(jobsEntity)
@@ -62,6 +67,11 @@ class MainViewModel @Inject constructor(
                 null
             )
         }
+    }
+
+    fun updateJobsDB(jobs: List<JobItem?>) {
+        val jobEntity = JobsEntity(jobs)
+        updateJobs(jobEntity)
     }
 
     private fun cacheJobsOffline(jobs: List<JobItem?>) {
