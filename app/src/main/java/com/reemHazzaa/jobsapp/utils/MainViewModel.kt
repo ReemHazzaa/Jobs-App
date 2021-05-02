@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.Repository
 import com.reemHazzaa.jobsapp.data.dataSources.remote.NetworkResult
-import com.reemHazzaa.jobsapp.data.models.ResponseJobs
+import com.reemHazzaa.jobsapp.data.models.JobItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
 
     private val isConnected = NetworkMonitor.isNetworkConnected
 
-    var jobsResponse: MutableLiveData<NetworkResult<ResponseJobs>> = MutableLiveData()
+    var jobsResponse: MutableLiveData<NetworkResult<List<JobItem?>?>> = MutableLiveData()
 
     fun getJobs(query: String) = viewModelScope.launch {
         getJobsSafeCall(query)
@@ -43,7 +43,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun handleJobsResponse(response: Response<ResponseJobs?>?): NetworkResult<ResponseJobs>? {
+    private fun handleJobsResponse(response: Response<List<JobItem?>?>?): NetworkResult<List<JobItem?>?> {
         when {
             response == null -> {
                 return NetworkResult.Error(getString(R.string.no_api_response))
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
             response.body() == null -> {
                 return NetworkResult.Error(getString(R.string.no_jobs))
             }
-            response.body()!!.jobsList.isNullOrEmpty() -> {
+            response.body()!!.isNullOrEmpty() -> {
                 return NetworkResult.Error(getString(R.string.no_jobs))
             }
             response.isSuccessful -> {

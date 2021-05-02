@@ -37,13 +37,16 @@ class JobsAdapter : RecyclerView.Adapter<JobsAdapter.JobViewHolder>() {
 
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         val currentItem = list[position]
+        if(currentItem.companyLogoUrl == null) {
+            currentItem.companyLogoUrl = ""
+        }
         holder.bind(currentItem)
     }
 
-    fun setList(filteredList: List<JobItem>) {
-        val tasksDiffUtil = JobsDiffUtil(list, filteredList)
+    fun setList(jobsList: List<JobItem>) {
+        val tasksDiffUtil = JobsDiffUtil(list, jobsList)
         val diffUtilResult = DiffUtil.calculateDiff(tasksDiffUtil)
-        list = filteredList
+        list = jobsList
         diffUtilResult.dispatchUpdatesTo(this)
     }
 

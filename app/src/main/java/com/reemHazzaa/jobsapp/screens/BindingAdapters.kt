@@ -9,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.data.models.JobItem
 import com.reemHazzaa.jobsapp.screens.jobsList.JobsListFragmentDirections
@@ -18,9 +19,14 @@ class BindingAdapters {
         @JvmStatic
         @BindingAdapter("loadImageFromUrl")
         fun loadImageFromUrl(imageView: ImageView, url: String) {
-            imageView.load(url) {
-                crossfade(true)
-                crossfade(600)
+            if (url != "") {
+                imageView.load(url) {
+                    crossfade(true)
+                    crossfade(600)
+                    placeholder(R.drawable.ic_company_place_holder)
+                }
+            } else {
+                imageView.load(R.drawable.ic_company_place_holder)
             }
         }
 

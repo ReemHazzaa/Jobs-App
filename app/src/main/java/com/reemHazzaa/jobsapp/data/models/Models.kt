@@ -8,10 +8,6 @@ import com.google.gson.annotations.SerializedName
 import com.reemHazzaa.jobsapp.utils.Constants.Companion.TABLE_JOBS
 import kotlinx.parcelize.Parcelize
 
-data class ResponseJobs(
-    val jobsList: List<JobItem?>?
-)
-
 @Entity(tableName = TABLE_JOBS)
 @Parcelize
 data class JobItem(
