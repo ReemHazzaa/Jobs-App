@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.screens
+package com.reemHazzaa.jobsapp.screens.jobsList.binding
 
 import android.view.View
 import android.widget.Button
@@ -12,7 +12,7 @@ import com.reemHazzaa.jobsapp.R
 import com.reemHazzaa.jobsapp.screens.jobsList.JobsListFragmentDirections
 import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 
-class BindingAdapters {
+class JobItemBindingAdapters {
     companion object {
         @JvmStatic
         @BindingAdapter("loadImageFromUrl")
@@ -25,30 +25,6 @@ class BindingAdapters {
                 }
             } else {
                 imageView.load(R.drawable.ic_company_place_holder)
-            }
-        }
-
-        @JvmStatic
-        @BindingAdapter("navigateToJobsList")
-        fun navigateToJobsList(bt: Button, navigate: Boolean) {
-            bt.setOnClickListener {
-                if (navigate) {
-                    bt.findNavController()
-                        .navigate(R.id.action_welcomeFragment_to_jobsListFragment)
-                }
-            }
-        }
-
-        /**
-         * This is a function to observe if the database is empty and
-         * show/hide views accordingly.
-         */
-        @JvmStatic
-        @BindingAdapter("emptyDatabase")
-        fun emptyDatabase(view: View, emptyDatabase: MutableLiveData<Boolean>) {
-            when (emptyDatabase.value) {
-                true -> view.visibility = View.VISIBLE
-                false -> view.visibility = View.INVISIBLE
             }
         }
 

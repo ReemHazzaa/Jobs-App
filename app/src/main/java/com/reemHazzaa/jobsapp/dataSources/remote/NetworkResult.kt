@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.data.dataSources.remote
+package com.reemHazzaa.jobsapp.dataSources.remote
 
 sealed class NetworkResult<T>(
     val data: T? = null,

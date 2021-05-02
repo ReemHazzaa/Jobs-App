@@ -1,4 +1,4 @@
-package com.reemHazzaa.jobsapp.data.dataSources.remote
+package com.reemHazzaa.jobsapp.dataSources.remote
 
 import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
 import retrofit2.Response

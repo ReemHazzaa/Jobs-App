@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="mainViewModel"
+            type="com.reemHazzaa.jobsapp.screens.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,14 +22,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:theme="@style/JobsSearchView"
             android:background="@drawable/rect_rounded_all_corners"
+            android:elevation="5dp"
             android:iconifiedByDefault="false"
             android:imeOptions="actionDone"
-            android:elevation="5dp"
             android:queryBackground="@android:color/transparent"
             android:queryHint="@string/search_jobs"
             android:searchIcon="@drawable/ic_search"
+            android:theme="@style/JobsSearchView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,8 +40,8 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView">
@@ -56,13 +59,39 @@
             android:id="@+id/loading"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:lottie_loop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
             app:lottie_autoPlay="true"
             app:lottie_fileName="loading.json"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:lottie_loop="true" />
 
+        <ImageView
+            android:id="@+id/noDataIV"
+            readApiResponse="@{mainViewModel.jobsResponse}"
+            readDatabase="@{mainViewModel.readJobs}"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:alpha="0.5"
+            android:src="@drawable/ic_emoji_sad"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+        <TextView
+            android:id="@+id/noDataTV"
+            readApiResponse2="@{mainViewModel.jobsResponse}"
+            readDatabase2="@{mainViewModel.readJobs}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/no_internet_connection"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/noDataIV"
+            app:layout_constraintStart_toStartOf="@+id/noDataIV"
+            app:layout_constraintTop_toBottomOf="@+id/noDataIV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

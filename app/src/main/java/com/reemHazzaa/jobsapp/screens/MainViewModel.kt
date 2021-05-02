@@ -1,15 +1,16 @@
-package com.reemHazzaa.jobsapp.utils
+package com.reemHazzaa.jobsapp.screens
 
 import android.app.Application
 import android.content.res.Resources
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.reemHazzaa.jobsapp.R
-import com.reemHazzaa.jobsapp.data.Repository
-import com.reemHazzaa.jobsapp.data.dataSources.remote.NetworkResult
+import com.reemHazzaa.jobsapp.dataSources.remote.NetworkResult
+import com.reemHazzaa.jobsapp.repository.Repository
 import com.reemHazzaa.jobsapp.screens.jobsList.data.JobItem
+import com.reemHazzaa.jobsapp.screens.jobsList.data.room.JobsEntity
+import com.reemHazzaa.jobsapp.utils.NetworkMonitor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
@@ -20,6 +21,15 @@ class MainViewModel @Inject constructor(
     application: Application
 ) : AndroidViewModel(application) {
 
+    /** ROOM */
+    val readJobs: LiveData<List<JobsEntity>> = repository.local.readJobs().asLiveData()
+
+    private fun insertJobs(jobsEntity: JobsEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertJobs(jobsEntity)
+        }
+
+    /** RETROFIT */
     private val isConnected = NetworkMonitor.isNetworkConnected
 
     var jobsResponse: MutableLiveData<NetworkResult<List<JobItem?>?>> = MutableLiveData()
@@ -34,6 +44,12 @@ class MainViewModel @Inject constructor(
             try {
                 val response = repository.remote.getJobs(query)
                 jobsResponse.value = handleJobsResponse(response)
+
+                val jobs = jobsResponse.value!!.data
+                if (jobs != null) {
+                    cacheJobsOffline(jobs)
+                }
+
             } catch (e: Exception) {
                 e.printStackTrace()
                 jobsResponse.value = NetworkResult.Error(getString(R.string.no_jobs))
@@ -41,6 +57,11 @@ class MainViewModel @Inject constructor(
         } else {
             jobsResponse.value = NetworkResult.Error(getString(R.string.no_internet_connection))
         }
+    }
+
+    private fun cacheJobsOffline(jobs: List<JobItem?>) {
+        val jobEntity = JobsEntity(jobs)
+        insertJobs(jobEntity)
     }
 
     private fun handleJobsResponse(response: Response<List<JobItem?>?>?): NetworkResult<List<JobItem?>?> {
