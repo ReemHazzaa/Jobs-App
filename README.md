@@ -1,4 +1,4 @@
-# Jobs-App
+# Jobs App
 A simple job-search app for the Android platform. 
 Follows the concept of "Single Activity". 
 Architectural pattern (MVVM). 
